@@ -1,10 +1,7 @@
 package com.solvd.web;
 
 import com.solvd.web.common.HomePageBase;
-import com.solvd.web.desktop.GamingPage;
-import com.solvd.web.desktop.HomePage;
-import com.solvd.web.desktop.LoginPage;
-import com.solvd.web.desktop.MoreTopicsPage;
+import com.solvd.web.desktop.*;
 import com.zebrunner.carina.core.IAbstractTest;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -52,7 +49,14 @@ public class WebTest implements IAbstractTest {
 
     @Test(testName = "Test Television Page Opens", description = "Testing television page opens")
     public void testTelevisionPageOpens() {
+        HomePage homepage = initPage(getDriver(), HomePage.class);
+        homepage.open();
+        Assert.assertTrue(homepage.isPageOpened(), "Home page is not opened");
 
-
+        TelevisionPage TelevisionPage = homepage.openTelevisionPage();
+        Assert.assertTrue(TelevisionPage.isPageOpened(), "Television Page is opened");
     }
+
+    @Test(testName = "Profile Page is Opened", description = "Testing profile page opens")
+    public void testProfilePage() {}
 }

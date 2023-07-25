@@ -36,7 +36,10 @@ public class HomePage extends HomePageBase {
     private ExtendedWebElement openGamingButton;
 
     @FindBy(xpath = "//span[@class='yloKeyD8bfd8UJ_Gi9rsR']")
-    private ExtendedWebElement moreTopicsButton;
+    private ExtendedWebElement openMoreTopicsButton;
+
+    @FindBy(xpath="//span[@class='yloKeyD8bfd8UJ_Gi9rsR']")
+    private ExtendedWebElement openTelevisionButton;
 
     public HomePage(WebDriver driver) {
         super(driver);
@@ -66,9 +69,16 @@ public class HomePage extends HomePageBase {
     }
 
     @Override
+    public TelevisionPage openTelevisionPage() {
+        if (openTelevisionButton != null) {
+            openTelevisionButton.click();
+        }
+        return initPage(driver, TelevisionPage.class);
+    }
+    @Override
     public MoreTopicsPage openMoreTopicsPage() {
-        if (moreTopicsButton != null) {
-            moreTopicsButton.click();
+        if (openMoreTopicsButton != null) {
+            openMoreTopicsButton.click();
         }
         return initPage(driver, MoreTopicsPage.class);    }
 }
