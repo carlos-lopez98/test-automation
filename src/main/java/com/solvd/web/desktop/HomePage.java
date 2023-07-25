@@ -1,6 +1,7 @@
 package com.solvd.web.desktop;
 
 
+import com.solvd.web.common.GamingPageBase;
 import com.solvd.web.common.HomePageBase;
 import com.solvd.web.common.LoginPageBase;
 import com.solvd.web.common.ProfilePageBase;
@@ -9,8 +10,6 @@ import com.zebrunner.carina.webdriver.decorator.ExtendedWebElement;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
-//Here we will specify all elements needed for our testing
-//Methods will simulate different user actions
 
 @DeviceType(pageType = DeviceType.Type.DESKTOP, parentClass = HomePageBase.class)
 public class HomePage extends HomePageBase {
@@ -27,19 +26,35 @@ public class HomePage extends HomePageBase {
     @FindBy(xpath = "//a[contains(text(), 'Log In')]")
     private ExtendedWebElement logInButton;
 
+    @FindBy(xpath = "//div[contains(text(), '_3x3dhQasGAuYcXVQ02QUzy icon icon-caret_down')]")
+    private ExtendedWebElement profileSelectionDropdown;
+
+    @FindBy(xpath = "//span[contains(text(), 'Profile'])")
+    private ExtendedWebElement profileButton;
+
+    @FindBy(xpath = "//span[@class='f8nXLisWxOYzMMl1uIAP3']")
+    private ExtendedWebElement openGamingButton;
+
+    @FindBy(xpath = "//span[@class='yloKeyD8bfd8UJ_Gi9rsR']")
+    private ExtendedWebElement moreTopicsButton;
+
     public HomePage(WebDriver driver) {
         super(driver);
         setUiLoadedMarker(homeHeader);
     }
 
     @Override
-    public void selectGamingPage() {
-
+    public GamingPage openGamingPage() {
+        if (openGamingButton != null) {
+            openGamingButton.click();
+        }
+        return initPage(driver, GamingPage.class);
     }
+
 
     @Override
     public LoginPage openLoginScreen() {
-        if(logInButton != null){
+        if (logInButton != null) {
             logInButton.click();
         }
         return initPage(driver, LoginPage.class);
@@ -50,4 +65,10 @@ public class HomePage extends HomePageBase {
         return null;
     }
 
+    @Override
+    public MoreTopicsPage openMoreTopicsPage() {
+        if (moreTopicsButton != null) {
+            moreTopicsButton.click();
+        }
+        return initPage(driver, MoreTopicsPage.class);    }
 }
