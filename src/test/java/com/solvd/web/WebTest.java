@@ -55,6 +55,8 @@ public class WebTest implements IAbstractTest {
 
         TelevisionPage TelevisionPage = homepage.openTelevisionPage();
         Assert.assertTrue(TelevisionPage.isPageOpened(), "Television Page is opened");
+
+
     }
 
     @Test(testName = "Profile Page is Opened", description = "Testing profile page opens")
