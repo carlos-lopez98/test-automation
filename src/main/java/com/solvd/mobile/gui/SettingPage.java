@@ -7,6 +7,7 @@ import org.openqa.selenium.WebDriver;
 
 @DeviceType(pageType = DeviceType.Type.ANDROID_PHONE, parentClass = SettingPageBase.class)
 public class SettingPage extends SettingPageBase {
+
     public SettingPage(WebDriver driver) {
         super(driver);
     }
