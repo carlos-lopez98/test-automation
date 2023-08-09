@@ -10,7 +10,7 @@ import com.zebrunner.carina.utils.config.Configuration;
 
 @Endpoint(url = "${base_url}/breed//images", methodType = HttpMethodType.GET)
 @ResponseTemplatePath(path = "src/test/resources/breeds/_getByBreedNull/rs.json")
-@SuccessfulHttpStatus(status = HttpResponseStatusType.OK_200)
+@SuccessfulHttpStatus(status = HttpResponseStatusType.NOT_FOUND_404)
 public class GetByBreedNull extends AbstractApiMethodV2 {
 
     public GetByBreedNull() {

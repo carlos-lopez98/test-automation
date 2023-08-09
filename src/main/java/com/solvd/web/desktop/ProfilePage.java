@@ -1,6 +1,5 @@
 package com.solvd.web.desktop;
 
-import com.solvd.web.common.GamingPageBase;
 import com.solvd.web.common.ProfilePageBase;
 import com.zebrunner.carina.utils.factory.DeviceType;
 import com.zebrunner.carina.webdriver.decorator.ExtendedWebElement;

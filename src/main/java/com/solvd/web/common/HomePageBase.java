@@ -12,12 +12,13 @@ public abstract class HomePageBase extends AbstractPage {
     public HomePageBase(WebDriver driver) {
         super(driver);
         setPageOpeningStrategy(PageOpeningStrategy.BY_URL);
+
     }
 
 
-    public abstract GamingPageBase openGamingPage();
-    public abstract LoginPageBase openLoginScreen();
-    public abstract ProfilePageBase openProfilePage();
-    public abstract TelevisionPageBase openTelevisionPage();
-    public abstract MoreTopicsPageBase openMoreTopicsPage();
+    public abstract ExplorePageBase selectExplore(String exploreTitle);
+//    public abstract LoginPageBase openLoginScreen();
+//    public abstract ProfilePageBase openProfilePage();
+//    public abstract TelevisionPageBase openTelevisionPage();
+//    public abstract MoreTopicsPageBase openMoreTopicsPage();
 }

@@ -53,7 +53,7 @@
 		<dependency>
 			<groupId>com.zebrunner</groupId>
 			<artifactId>carina-api</artifactId>
-			<version>${carina-api.version}</version>
+			<version>RELEASE</version>
 		</dependency>
 		<dependency>
 			<groupId>com.zebrunner</groupId>

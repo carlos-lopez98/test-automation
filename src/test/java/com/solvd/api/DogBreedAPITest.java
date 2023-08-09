@@ -1,6 +1,5 @@
 package com.solvd.api;
 
-import com.zebrunner.carina.api.http.HttpResponseStatusType;
 import com.zebrunner.carina.core.IAbstractTest;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -14,7 +13,7 @@ public class DogBreedAPITest implements IAbstractTest {
     public void getAll_retrievesAllBreeds() {
         LOGGER.info("test");
         GetAllBreeds getAllBreeds = new GetAllBreeds();
-        getAllBreeds.callAPIExpectSuccess();
+        getAllBreeds.callAPIExpectSuccess(); // Links to expected HTTPStatus annotation
         getAllBreeds.validateResponseAgainstSchema("breeds/_get/rs.schema");
     }
 
@@ -31,8 +30,8 @@ public class DogBreedAPITest implements IAbstractTest {
     public void getBreedByNull_returnsError() {
         LOGGER.info("test");
         GetByBreedNull getByBreedNull = new GetByBreedNull();
-        getByBreedNull.callAPI();
-        getByBreedNull.expectResponseStatus(HttpResponseStatusType.NOT_FOUND_404);
+        //404 set in apiMethod
+        getByBreedNull.callAPIExpectSuccess();
     }
 
     @Test
@@ -55,8 +54,8 @@ public class DogBreedAPITest implements IAbstractTest {
     public void getSubBreedByNull_returnsError() {
         LOGGER.info("test");
         GetSubBreedNull getSubBreedNull = new GetSubBreedNull();
-        getSubBreedNull.callAPI();
-        getSubBreedNull.expectResponseStatus(HttpResponseStatusType.NOT_FOUND_404);
+        //404 set in apiMethod
+        getSubBreedNull.callAPIExpectSuccess();
     }
 
 }

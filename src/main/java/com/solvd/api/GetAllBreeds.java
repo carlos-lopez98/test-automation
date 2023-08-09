@@ -10,7 +10,7 @@ import com.zebrunner.carina.utils.config.Configuration;
 
 @Endpoint(url = "${base_url}/breeds/list/all", methodType = HttpMethodType.GET)
 @ResponseTemplatePath(path = "src/test/resources.api/breeds/_getAll/rs.json")
-@SuccessfulHttpStatus(status = HttpResponseStatusType.OK_200)
+@SuccessfulHttpStatus(status = HttpResponseStatusType.OK_200) // This annotation links with ExpectSuccess, if actual call returns 404, then test is failed
 public class GetAllBreeds extends AbstractApiMethodV2 {
 
     public GetAllBreeds() {
